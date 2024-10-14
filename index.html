@@ -1,0 +1,389 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "soft-blue": "hsl(231, 69%, 60%)",
+                            "soft-red": "hsl(0, 94%, 66%)",
+                            "grayish-blue": "hsl(229, 8%, 60%)",
+                            "very-dark-blue": "hsl(229, 31%, 21%)",
+                        },
+                        fontFamily: {
+                            rubik: ["Rubik", "sans-serif"],
+                        },
+                    },
+                },
+            }
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Bookmark</title>
+    </head>
+    <body class="font-rubik" id="body">
+        <header class="px-8 py-10 overflow-hidden">
+            <nav class="flex justify-between">
+                <a href="#"><img src="images/logo-bookmark.svg" alt="bookmark logo" /> </a>
+                <button id="openBtn" onclick="openMenu()">
+                    <img src="images/icon-hamburger.svg" alt="hamburger icon" />
+                </button>
+            </nav>
+            <div class="relative mt-16">
+                <img class="relative z-10" src="images/illustration-hero.svg" alt="" />
+                <div class="absolute z-0 w-full h-full rounded-l-full top-10 -right-10 bg-soft-blue"></div>
+            </div>
+            <div class="flex flex-col items-center gap-6">
+                <h1 class="mt-20 text-3xl font-medium text-center font-rubik">A Simple Bookmark Manager</h1>
+                <p class="text-center text-grayish-blue">
+                    A clean and simple interface to organize your favourite websites. Open a new browser tab and see
+                    your sites load instantly. Try it for free.
+                </p>
+                <div class="flex items-center justify-center w-full gap-3">
+                    <button
+                        class="px-3 py-3 w-1/2 text-sm font-medium text-white rounded-md bg-soft-blue font-rubik shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
+                    >
+                        Get it Chrome
+                    </button>
+                    <button
+                        class="px-3 py-3 rounded-md w-1/2 bg-[#F7F7F7] text-very-dark-blue font-rubik text-sm font-medium shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
+                    >
+                        Get it on Firefox
+                    </button>
+                </div>
+            </div>
+        </header>
+        <aside
+            class="fixed inset-0 z-20 flex flex-col items-center justify-between hidden px-8 py-10 bg-very-dark-blue/90"
+            id="navMenu"
+        >
+            <nav class="w-full">
+                <div class="flex justify-between">
+                    <a href="#"
+                        ><svg width="148" height="25" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path
+                                    d="M37 6.299h5.227c.746 0 1.434.155 2.062.466.629.311 1.123.735 1.484 1.27s.542 1.12.542 1.754c0 .672-.165 1.254-.495 1.746-.33.491-.762.868-1.297 1.129v.15c.697.248 1.25.643 1.661 1.185.41.541.616 1.191.616 1.95 0 .735-.196 1.385-.588 1.951a3.817 3.817 0 0 1-1.587 1.307c-.665.305-1.403.457-2.212.457H37V6.299zm5.04 5.45c.548 0 .986-.152 1.316-.457.33-.305.495-.688.495-1.148 0-.448-.159-.824-.476-1.13-.318-.304-.738-.457-1.26-.457H39.52v3.192h2.52zm.28 5.619c.61 0 1.086-.159 1.428-.476.342-.317.513-.731.513-1.241 0-.51-.174-.927-.522-1.251-.349-.324-.847-.485-1.494-.485H39.52v3.453h2.8zm12.927 2.595c-1.307 0-2.492-.308-3.556-.924a6.711 6.711 0 0 1-2.511-2.53c-.61-1.07-.915-2.246-.915-3.528 0-1.281.305-2.457.915-3.528a6.711 6.711 0 0 1 2.51-2.529C52.756 6.308 53.94 6 55.248 6c1.306 0 2.492.308 3.556.924a6.711 6.711 0 0 1 2.51 2.53c.61 1.07.915 2.246.915 3.527 0 1.282-.305 2.458-.915 3.528a6.711 6.711 0 0 1-2.51 2.53c-1.064.616-2.25.924-3.556.924zm0-2.39a4.52 4.52 0 0 0 2.258-.578 4.177 4.177 0 0 0 1.615-1.624c.392-.697.588-1.494.588-2.39 0-.896-.196-1.692-.588-2.389a4.177 4.177 0 0 0-1.615-1.624 4.52 4.52 0 0 0-2.258-.579 4.47 4.47 0 0 0-2.25.579 4.195 4.195 0 0 0-1.605 1.624c-.392.697-.588 1.493-.588 2.39 0 .895.196 1.692.588 2.389a4.195 4.195 0 0 0 1.605 1.624 4.47 4.47 0 0 0 2.25.578zm15.353 2.39c-1.307 0-2.492-.308-3.556-.924a6.711 6.711 0 0 1-2.51-2.53c-.61-1.07-.915-2.246-.915-3.528 0-1.281.305-2.457.914-3.528a6.711 6.711 0 0 1 2.511-2.529C68.108 6.308 69.294 6 70.6 6c1.307 0 2.492.308 3.556.924a6.711 6.711 0 0 1 2.51 2.53c.61 1.07.915 2.246.915 3.527 0 1.282-.305 2.458-.914 3.528a6.711 6.711 0 0 1-2.511 2.53c-1.064.616-2.25.924-3.556.924zm0-2.39a4.52 4.52 0 0 0 2.259-.578 4.177 4.177 0 0 0 1.614-1.624c.392-.697.588-1.494.588-2.39 0-.896-.196-1.692-.588-2.389a4.177 4.177 0 0 0-1.614-1.624 4.52 4.52 0 0 0-2.259-.579 4.47 4.47 0 0 0-2.25.579 4.195 4.195 0 0 0-1.605 1.624c-.392.697-.588 1.493-.588 2.39 0 .895.196 1.692.588 2.389a4.195 4.195 0 0 0 1.606 1.624 4.47 4.47 0 0 0 2.249.578zM79.83 6.3h2.52v5.73h.15l4.89-5.73h3.043v.149L85.6 11.973l5.338 7.542v.149h-3.08l-3.994-5.693-1.512 1.773v3.92h-2.52V6.299zM93.779 6h3.248l3.546 9.39h.15L104.268 6h3.267v13.365h-2.501v-6.589l.15-2.221h-.15l-3.398 8.81h-1.96l-3.416-8.81h-.149l.15 2.221v6.59h-2.483V6zm20.8 0h2.894l5.021 13.365h-2.781l-1.12-3.192h-5.115l-1.12 3.192h-2.781L114.579 6zm3.193 7.859l-1.176-3.36-.486-1.606h-.149l-.485 1.606-1.195 3.36h3.49zM124.553 6h4.872c.871 0 1.646.18 2.324.541.678.361 1.204.862 1.577 1.503.374.64.56 1.366.56 2.175 0 .858-.27 1.62-.812 2.286a4.617 4.617 0 0 1-2.044 1.447l-.018.13 3.584 5.134v.15h-2.894l-3.453-5.022h-1.176v5.021h-2.52V6zm4.853 6.03c.573 0 1.04-.175 1.4-.523.361-.349.542-.79.542-1.326 0-.51-.172-.945-.514-1.306-.342-.361-.806-.542-1.39-.542h-2.371v3.696h2.333zm7.23-6.03h2.52v5.73h.15l4.89-5.73h3.043v.15l-4.835 5.525 5.34 7.541v.15h-3.08l-3.996-5.694-1.512 1.773v3.92h-2.52V6z"
+                                    fill="#ffffff"
+                                    fill-rule="nonzero"
+                                />
+                                <g>
+                                    <circle fill="#ffffff" cx="12.5" cy="12.5" r="12.5" />
+                                    <path
+                                        d="M9 9v10l3.54-3.44L16.078 19V9a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2z"
+                                        fill="#252b46"
+                                    />
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                    <button><img src="images/icon-close.svg" alt="close icon" onclick="closeMenu()" /></button>
+                </div>
+
+                <ul class="mt-8">
+                    <li class="flex flex-col items-center gap-4">
+                        <hr class="w-full h-[0.5px] border-none bg-grayish-blue" />
+                        <a href=""><h3 class="text-xl font-light tracking-widest text-white">FEATURES</h3></a>
+                        <hr class="w-full h-[0.5px] border-none bg-grayish-blue" />
+                    </li>
+                    <li class="flex flex-col items-center gap-4 mt-4">
+                        <a href=""><h3 class="text-xl font-light tracking-widest text-white">PRICING</h3></a>
+                        <hr class="w-full h-[0.5px] border-none bg-grayish-blue" />
+                    </li>
+                    <li class="flex flex-col items-center gap-4 mt-4">
+                        <a href=""><h3 class="text-xl font-light tracking-widest text-white">CONTACT</h3></a>
+                        <hr class="w-full h-[0.5px] border-none bg-grayish-blue" />
+                    </li>
+                    <button
+                        class="w-full py-1 mt-4 text-lg tracking-widest text-white border-2 border-white rounded-md text-medium"
+                    >
+                        LOGIN
+                    </button>
+                </ul>
+            </nav>
+            <div class="flex justify-between gap-8">
+                <a href=""><img src="images/icon-facebook.svg" alt="" /></a>
+                <a href=""><img src="images/icon-twitter.svg" alt="" /></a>
+            </div>
+        </aside>
+        <main class="px-8 py-10 mt-20">
+            <section class="flex flex-col">
+                <div class="flex flex-col items-center gap-4">
+                    <h2 class="text-2xl font-medium text-center font-rubik text-very-dark-blue">Features</h2>
+                    <p class="text-center text-grayish-blue">
+                        Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks
+                        sync between your devices so you can access them on the go.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <ul class="flex flex-col items-center gap-4" id="featuresList">
+                        <hr class="w-full bg-grayish-blue" />
+                        <li class="relative flex flex-col items-center text-center">
+                            <button onclick="firstFeature()">Simple Bookmarking</button>
+                            <hr class="absolute h-[5px] -bottom-4 w-32 bg-soft-red" />
+                        </li>
+                        <hr class="w-full bg-grayish-blue" />
+                        <li class="relative flex flex-col items-center text-center">
+                            <button onclick="secondFeature()">Speedy Searching</button>
+                            <hr class="hidden absolute h-[5px] -bottom-4 w-32 bg-soft-red" />
+                        </li>
+                        <hr class="w-full bg-grayish-blue" />
+                        <li class="relative flex flex-col items-center text-center">
+                            <button onclick="thirdFeature()">Easy Sharing</button>
+                            <hr class="hidden absolute h-[5px] -bottom-4 w-32 bg-soft-red" />
+                        </li>
+                        <hr class="w-full bg-grayish-blue" />
+                    </ul>
+                </div>
+                <div id="featureImg">
+                    <span class="">
+                        <div class="relative mt-16">
+                            <img
+                                class="relative z-10"
+                                src="images/illustration-features-tab-1.svg"
+                                alt="illustration features"
+                            />
+                            <div class="absolute z-0 w-full h-full rounded-r-full top-10 -left-10 bg-soft-blue"></div>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-20">
+                            <h2 class="text-2xl font-medium text-center font-rubik text-very-dark-blue">
+                                Bookmark in one click
+                            </h2>
+                            <p class="text-center text-grayish-blue">
+                                Organize your bookmarks however you like. Our simple drag-and-drop interface gives you
+                                complete control over how you manage your favourite sites.
+                            </p>
+                        </div>
+                    </span>
+                    <span class="hidden">
+                        <div class="relative mt-16">
+                            <img
+                                class="relative z-10"
+                                src="images/illustration-features-tab-2.svg"
+                                alt="illustration features"
+                            />
+                            <div class="absolute z-0 w-full h-full rounded-r-full top-10 -left-10 bg-soft-blue"></div>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-20">
+                            <h2 class="text-2xl font-medium text-center font-rubik text-very-dark-blue">
+                                Intelligent search
+                            </h2>
+                            <p class="text-center text-grayish-blue">
+                                Our powerfull search feature will help you find saved sites in no time at all. No need
+                                to trawl throough all off your bookmarks.
+                            </p>
+                        </div>
+                    </span>
+                    <span class="hidden">
+                        <div class="relative mt-16">
+                            <img
+                                class="relative z-10"
+                                src="images/illustration-features-tab-3.svg"
+                                alt="illustration features"
+                            />
+                            <div class="absolute z-0 w-full h-full rounded-r-full top-10 -left-10 bg-soft-blue"></div>
+                        </div>
+                        <div class="flex flex-col gap-3 mt-20">
+                            <h2 class="text-2xl font-medium text-center font-rubik text-very-dark-blue">
+                                Share your bookmarks
+                            </h2>
+                            <p class="text-center text-grayish-blue">
+                                Easily share your bookmarks and collections with others. Create a shareable link that
+                                you can send at the click of a button.
+                            </p>
+                        </div>
+                    </span>
+                </div>
+            </section>
+
+            <section class="mt-40">
+                <div>
+                    <h2 class="text-2xl font-medium text-center font-rubik text-very-dark-blue">
+                        Download the extension
+                    </h2>
+                    <p class="text-center text-grayish-blue">
+                        We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd
+                        like us to prioritize.
+                    </p>
+                </div>
+                <div>
+                    <ul class="flex flex-col items-center gap-8 mt-10">
+                        <li
+                            class="h-96 w-11/12 flex flex-col rounded-lg items-center justify-center shadow-[0px_10px_12px_2px_#edf2f7]"
+                        >
+                            <img class="mb-10" src="images/logo-chrome.svg" alt="" />
+                            <h3 class="text-xl font-medium text-center font-rubik text-very-dark-blue">
+                                Add to Chrome
+                            </h3>
+                            <p class="text-sm text-center text-grayish-blue">Minimum version 62</p>
+                            <img class="w-full mt-6" src="images/bg-dots.svg" alt="" />
+                            <button class="w-3/4 px-4 py-3 mt-8 text-white rounded-md bg-soft-blue">
+                                Add & Install Extension
+                            </button>
+                        </li>
+                        <li
+                            class="h-96 w-11/12 flex flex-col rounded-lg items-center justify-center shadow-[0px_10px_12px_2px_#edf2f7]"
+                        >
+                            <img class="mb-10" src="images/logo-firefox.svg" alt="" />
+                            <h3 class="text-xl font-medium text-center font-rubik text-very-dark-blue">
+                                Add to Firefox
+                            </h3>
+                            <p class="text-sm text-center text-grayish-blue">Minimum version 55</p>
+                            <img class="w-full mt-6" src="images/bg-dots.svg" alt="" />
+                            <button class="w-3/4 px-4 py-3 mt-8 text-white rounded-md bg-soft-blue">
+                                Add & Install Extension
+                            </button>
+                        </li>
+                        <li
+                            class="h-96 w-11/12 flex flex-col rounded-lg items-center justify-center shadow-[0px_10px_12px_2px_#edf2f7]"
+                        >
+                            <img class="mb-10" src="images/logo-opera.svg" alt="" />
+                            <h3 class="text-xl font-medium text-center font-rubik text-very-dark-blue">Add to Opera</h3>
+                            <p class="text-sm text-center text-grayish-blue">Minimum version 46</p>
+                            <img class="w-full mt-6" src="images/bg-dots.svg" alt="" />
+                            <button class="w-3/4 px-4 py-3 mt-8 text-white rounded-md bg-soft-blue">
+                                Add & Install Extension
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="flex flex-col items-center mt-40">
+                <div>
+                    <h2 class="text-2xl font-medium text-center text-very-dark-blue">Frequently Asked Questions</h2>
+                    <p class="mt-4 text-center text-grayish-blue">
+                        Here are some of our FAQs. If you have any other questions you'd like answered please feel free
+                        to email us.
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <ul class="flex flex-col gap-5" id="faqList">
+                        <li>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-center text-very-dark-blue">What is Bookmark?</h4>
+                                <button onclick="firstFaq()">
+                                    <img src="images/icon-arrow.svg" alt="icon arrow" />
+                                </button>
+                            </div>
+                            <p class="hidden mt-2 text-sm text-grayish-blue">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facere maxime.
+                                Laudantium, dicta ipsam tenetur omnis saepe possimus eius consequuntur dolorum amet,
+                                nulla iusto fugit error qui delectus similique id?
+                            </p>
+                            <hr class="w-full mt-3 bg-grayish-blue" />
+                        </li>
+                        <li>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-center text-very-dark-blue">How can I request a new browser?</h4>
+                                <button onclick="secondFaq()">
+                                    <img src="images/icon-arrow.svg" alt="icon arrow" />
+                                </button>
+                            </div>
+                            <p class="hidden mt-2 text-sm text-grayish-blue">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facere maxime.
+                                Laudantium, dicta ipsam tenetur omnis saepe possimus eius consequuntur dolorum amet,
+                                nulla iusto fugit error qui delectus similique id?
+                            </p>
+                            <hr class="w-full mt-3 bg-grayish-blue" />
+                        </li>
+                        <li>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-center text-very-dark-blue">Is there a mobile app?</h4>
+                                <button onclick="thirdFaq()">
+                                    <img src="images/icon-arrow.svg" alt="icon arrow" />
+                                </button>
+                            </div>
+                            <p class="hidden mt-2 text-sm text-grayish-blue">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facere maxime.
+                                Laudantium, dicta ipsam tenetur omnis saepe possimus eius consequuntur dolorum amet,
+                                nulla iusto fugit error qui delectus similique id?
+                            </p>
+                            <hr class="w-full mt-3 bg-grayish-blue" />
+                        </li>
+                        <li>
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-center text-very-dark-blue">What about other Chromium browsers?</h4>
+                                <button onclick="fourthFaq()">
+                                    <img src="images/icon-arrow.svg" alt="icon arrow" />
+                                </button>
+                            </div>
+                            <p class="hidden mt-2 text-sm text-grayish-blue">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facere maxime.
+                                Laudantium, dicta ipsam tenetur omnis saepe possimus eius consequuntur dolorum amet,
+                                nulla iusto fugit error qui delectus similique id?
+                            </p>
+                            <hr class="w-full mt-3 bg-grayish-blue" />
+                        </li>
+                    </ul>
+                </div>
+                <button class="px-4 py-2 mt-12 text-white rounded-md bg-soft-blue">More info</button>
+            </section>
+        </main>
+        <footer class="w-full">
+            <section class="flex flex-col items-center px-8 py-10 mt-20 bg-soft-blue">
+                <div class="w-full text-center text-white">
+                    <h3 class="tracking-[.25em] text-sm font-medium w-full">35.000+ ALREADY JOINED</h3>
+                    <h2 class="w-full mt-2 text-2xl">Stay up-to-date with what we're doing</h2>
+                </div>
+                <div class="relative flex flex-col w-full gap-4 mt-8">
+                    <input
+                        type="email"
+                        name="mail"
+                        id="emailField"
+                        placeholder="Enter your email address icon-error"
+                        spellcheck="false"
+                        class="relative w-full px-4 py-3 border-[3px] rounded-md outline-none"
+                        onkeyup="checkMail()"
+                    />
+                    <img
+                        class="absolute inset-y-0 hidden right-3 top-4"
+                        src="images/icon-error.svg"
+                        alt="error icon"
+                        id="errorImg"
+                    />
+                    <span
+                        class="relative hidden w-full px-2 py-1 mt-3 -mb-8 text-sm text-white bottom-8 rounded-b-md bg-soft-red"
+                        id="errorMsg"
+                        >Whoops, make sure it's an email.</span
+                    >
+                    <button class="w-full px-4 py-3 text-white rounded-md bg-soft-red">Contact US</button>
+                </div>
+            </section>
+            <section class="flex flex-col items-center px-8 py-8 bg-very-dark-blue">
+                <svg width="148" height="25" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <path
+                            d="M37 6.299h5.227c.746 0 1.434.155 2.062.466.629.311 1.123.735 1.484 1.27s.542 1.12.542 1.754c0 .672-.165 1.254-.495 1.746-.33.491-.762.868-1.297 1.129v.15c.697.248 1.25.643 1.661 1.185.41.541.616 1.191.616 1.95 0 .735-.196 1.385-.588 1.951a3.817 3.817 0 0 1-1.587 1.307c-.665.305-1.403.457-2.212.457H37V6.299zm5.04 5.45c.548 0 .986-.152 1.316-.457.33-.305.495-.688.495-1.148 0-.448-.159-.824-.476-1.13-.318-.304-.738-.457-1.26-.457H39.52v3.192h2.52zm.28 5.619c.61 0 1.086-.159 1.428-.476.342-.317.513-.731.513-1.241 0-.51-.174-.927-.522-1.251-.349-.324-.847-.485-1.494-.485H39.52v3.453h2.8zm12.927 2.595c-1.307 0-2.492-.308-3.556-.924a6.711 6.711 0 0 1-2.511-2.53c-.61-1.07-.915-2.246-.915-3.528 0-1.281.305-2.457.915-3.528a6.711 6.711 0 0 1 2.51-2.529C52.756 6.308 53.94 6 55.248 6c1.306 0 2.492.308 3.556.924a6.711 6.711 0 0 1 2.51 2.53c.61 1.07.915 2.246.915 3.527 0 1.282-.305 2.458-.915 3.528a6.711 6.711 0 0 1-2.51 2.53c-1.064.616-2.25.924-3.556.924zm0-2.39a4.52 4.52 0 0 0 2.258-.578 4.177 4.177 0 0 0 1.615-1.624c.392-.697.588-1.494.588-2.39 0-.896-.196-1.692-.588-2.389a4.177 4.177 0 0 0-1.615-1.624 4.52 4.52 0 0 0-2.258-.579 4.47 4.47 0 0 0-2.25.579 4.195 4.195 0 0 0-1.605 1.624c-.392.697-.588 1.493-.588 2.39 0 .895.196 1.692.588 2.389a4.195 4.195 0 0 0 1.605 1.624 4.47 4.47 0 0 0 2.25.578zm15.353 2.39c-1.307 0-2.492-.308-3.556-.924a6.711 6.711 0 0 1-2.51-2.53c-.61-1.07-.915-2.246-.915-3.528 0-1.281.305-2.457.914-3.528a6.711 6.711 0 0 1 2.511-2.529C68.108 6.308 69.294 6 70.6 6c1.307 0 2.492.308 3.556.924a6.711 6.711 0 0 1 2.51 2.53c.61 1.07.915 2.246.915 3.527 0 1.282-.305 2.458-.914 3.528a6.711 6.711 0 0 1-2.511 2.53c-1.064.616-2.25.924-3.556.924zm0-2.39a4.52 4.52 0 0 0 2.259-.578 4.177 4.177 0 0 0 1.614-1.624c.392-.697.588-1.494.588-2.39 0-.896-.196-1.692-.588-2.389a4.177 4.177 0 0 0-1.614-1.624 4.52 4.52 0 0 0-2.259-.579 4.47 4.47 0 0 0-2.25.579 4.195 4.195 0 0 0-1.605 1.624c-.392.697-.588 1.493-.588 2.39 0 .895.196 1.692.588 2.389a4.195 4.195 0 0 0 1.606 1.624 4.47 4.47 0 0 0 2.249.578zM79.83 6.3h2.52v5.73h.15l4.89-5.73h3.043v.149L85.6 11.973l5.338 7.542v.149h-3.08l-3.994-5.693-1.512 1.773v3.92h-2.52V6.299zM93.779 6h3.248l3.546 9.39h.15L104.268 6h3.267v13.365h-2.501v-6.589l.15-2.221h-.15l-3.398 8.81h-1.96l-3.416-8.81h-.149l.15 2.221v6.59h-2.483V6zm20.8 0h2.894l5.021 13.365h-2.781l-1.12-3.192h-5.115l-1.12 3.192h-2.781L114.579 6zm3.193 7.859l-1.176-3.36-.486-1.606h-.149l-.485 1.606-1.195 3.36h3.49zM124.553 6h4.872c.871 0 1.646.18 2.324.541.678.361 1.204.862 1.577 1.503.374.64.56 1.366.56 2.175 0 .858-.27 1.62-.812 2.286a4.617 4.617 0 0 1-2.044 1.447l-.018.13 3.584 5.134v.15h-2.894l-3.453-5.022h-1.176v5.021h-2.52V6zm4.853 6.03c.573 0 1.04-.175 1.4-.523.361-.349.542-.79.542-1.326 0-.51-.172-.945-.514-1.306-.342-.361-.806-.542-1.39-.542h-2.371v3.696h2.333zm7.23-6.03h2.52v5.73h.15l4.89-5.73h3.043v.15l-4.835 5.525 5.34 7.541v.15h-3.08l-3.996-5.694-1.512 1.773v3.92h-2.52V6z"
+                            fill="#ffffff"
+                            fill-rule="nonzero"
+                        />
+                        <g>
+                            <circle fill="#5267DF" cx="12.5" cy="12.5" r="12.5" />
+                            <path d="M9 9v10l3.54-3.44L16.078 19V9a2 2 0 0 0-2-2H11a2 2 0 0 0-2 2z" fill="#FFF" />
+                        </g>
+                    </g>
+                </svg>
+                <ul class="flex flex-col items-center gap-3 mt-6 text-grayish-blue">
+                    <li><a href="#">FEATURES</a></li>
+                    <li><a href="#">PRICING</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+                <div class="flex items-center gap-8 mt-10">
+                    <a href="#"><img src="images/icon-facebook.svg" alt="" /></a>
+                    <a href="#"><img src="images/icon-twitter.svg" alt="" /></a>
+                </div>
+            </section>
+        </footer>
+        <script src="main.js"></script>
+    </body>
+</html>
