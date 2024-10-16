@@ -25,9 +25,17 @@ const firstFeature = () => {
     features[1].classList.add("hidden")
     features[2].classList.add("hidden")
 
+    features[0].classList.remove("md:hidden")
+    features[1].classList.add("md:hidden")
+    features[2].classList.add("md:hidden")
+
     featureImg[0].classList.remove("hidden")
     featureImg[1].classList.add("hidden")
     featureImg[2].classList.add("hidden")
+
+    featureImg[0].classList.remove("md:hidden")
+    featureImg[1].classList.add("md:hidden")
+    featureImg[2].classList.add("md:hidden")
 }
 
 const secondFeature = () => {
@@ -35,9 +43,17 @@ const secondFeature = () => {
     features[1].classList.remove("hidden")
     features[2].classList.add("hidden")
 
+    features[0].classList.add("md:hidden")
+    features[1].classList.remove("md:hidden")
+    features[2].classList.add("md:hidden")
+
     featureImg[0].classList.add("hidden")
     featureImg[1].classList.remove("hidden")
     featureImg[2].classList.add("hidden")
+
+    featureImg[0].classList.add("md:hidden")
+    featureImg[1].classList.remove("md:hidden")
+    featureImg[2].classList.add("md:hidden")
 }
 
 const thirdFeature = () => {
@@ -45,9 +61,17 @@ const thirdFeature = () => {
     features[1].classList.add("hidden")
     features[2].classList.remove("hidden")
 
+    features[0].classList.add("md:hidden")
+    features[1].classList.add("md:hidden")
+    features[2].classList.remove("md:hidden")
+
     featureImg[0].classList.add("hidden")
     featureImg[1].classList.add("hidden")
     featureImg[2].classList.remove("hidden")
+
+    featureImg[0].classList.add("md:hidden")
+    featureImg[1].classList.add("md:hidden")
+    featureImg[2].classList.remove("md:hidden")
 }
 
 const firstFaq = () => {
